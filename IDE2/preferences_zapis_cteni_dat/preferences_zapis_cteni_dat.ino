@@ -1,5 +1,5 @@
 #include <Preferences.h>
-test
+test2
 Preferences preferences;
 
 void setup() {
