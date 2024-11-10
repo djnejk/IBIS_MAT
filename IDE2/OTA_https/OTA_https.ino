@@ -30,7 +30,7 @@ Serial.println(password);
 
   checkForUpdates();  // Zkontroluje aktualizace při startu
 }
- 
+
 void loop() {
   // Hlavní kód aplikace – tady můžeš dělat cokoli
   // Blikání LED
