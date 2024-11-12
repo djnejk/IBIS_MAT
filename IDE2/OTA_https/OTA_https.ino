@@ -7,7 +7,7 @@ Preferences preferences;
 #include <Update.h>
 #include <WiFi.h>
 
-const float currentVersion = 3.0;  // Aktuální verze nahraná na ESP32
+const float currentVersion = 7.0;  // Aktuální verze nahraná na ESP32
 const char* versionURL = "https://api.djdevs.eu/testota/version.json";
 
 void setup() {
@@ -17,8 +17,8 @@ void setup() {
   preferences.begin("my-app", false);  // Druhý argument "false" je režim čtení/zápisu
   String ssid = preferences.getString("ssid_sta", "default");
   String password = preferences.getString("password_sta", "default");
-Serial.println(ssid);
-Serial.println(password);
+  Serial.println(ssid);
+  Serial.println(password);
   WiFi.begin(ssid, password);
 
   Serial.print("Připojuji k Wi-Fi");
@@ -87,22 +87,43 @@ void performOTAUpdate(const char* downloadURL) {
     if (Update.begin(contentLength)) {
       Serial.println("Začíná OTA aktualizace...");
 
-      size_t written = Update.writeStream(client);
-      if (written == contentLength) {
-        Serial.println("OTA aktualizace byla úspěšná!");
-      } else {
-        Serial.printf("OTA chyba: zapsáno %d z %d bajtů\n", written, contentLength);
+      int written = 0;
+      int prevProgress = 0;
+      uint8_t buffer[1024];  // Buffer pro bloky dat
+
+      while (client.connected() && written < contentLength) {
+        size_t bytesAvailable = client.available();
+        if (bytesAvailable > 0) {
+          int bytesRead = client.readBytes(buffer, min((size_t)bytesAvailable, sizeof(buffer)));
+          if (bytesRead > 0) {
+            size_t bytesWritten = Update.write(buffer, bytesRead);
+            if (bytesWritten > 0) {
+              written += bytesWritten;
+
+              // Výpočet a výpis procentuálního průběhu
+              int progress = (written * 100) / contentLength;
+              if (progress != prevProgress) {
+                Serial.printf("Progres: %d%%\n", progress);
+                prevProgress = progress;
+              }
+            } else {
+              Serial.println("Chyba při zápisu dat!");
+              break;
+            }
+          }
+        }
       }
 
       if (Update.end()) {
         if (Update.isFinished()) {
+          Serial.println("OTA aktualizace byla úspěšná!");
           Serial.println("Restart zařízení...");
           ESP.restart();
         } else {
-          Serial.println("Update neúspěšný.");
+          Serial.println("Aktualizace nedokončena.");
         }
       } else {
-        Serial.printf("Update chyba: %s\n", Update.errorString());
+        Serial.printf("Chyba při ukončení aktualizace: %s\n", Update.errorString());
       }
     } else {
       Serial.println("Není dostatek místa pro OTA update.");
@@ -112,3 +133,5 @@ void performOTAUpdate(const char* downloadURL) {
   }
   http.end();
 }
+
+
