@@ -14,7 +14,7 @@
 #include <HardwareSerial.h>
 #include "ibis.h"
 
-const String currentVersion = "v2.4.12";
+const String currentVersion = "v2.4.14";
 
 
 // Definování sériového portu

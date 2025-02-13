@@ -1,0 +1,67 @@
+Seznam součástek převodníku v3:
+
+
+
+
+boardy a moduly:
+- Arduino nano / ESP-wroom-32
+- Tuya WBR3
+
+---------
+
+vr1  - TSR1-2450 (Měnič: DC/DC; Uvst: 6,5÷36VDC; Uvýst: 5VDC; Ivýst: 1A; SIP3; TSR 1)
+oc1  - TLP350F (Optočlen; THT; Ch: 1; OUT: totem pole; Uizol: 3,75kV; Uce: 30V; DIP8)
+F1   - 0ZCF0050FF2C (Pojistka: polymerová PTC; 0,5A; Imax: 100A; 0ZCF; 2920)
+
+---------
+
+C1,
+C2   - 293D475X9035B2TE3 (Kondenzátor: tantalový; 4,7uF; 35VDC; SMD; B; 1411; ±10%; -55÷125°C)
+
+C3   - TPSD336K035R030 (Kondenzátor: tantalový; low ESR; 33uF; 35VDC; SMD; D; 2917; ±10%)
+
+C4   - TAJR106K006RNJ (Kondenzátor: tantalový; 10uF; 6,3VDC; SMD; R; 0805; ±10%; -55÷125°C)
+
+C5,
+C6   - TAJR104K020RNJ (Kondenzátor: tantalový; 0,1uF; 20VDC; SMD; R; 0805; ±10%; -55÷125°C)
+
+---------
+
+R1   - WF25P10R0FTL (Rezistor: thick film; SMD; 2512; 10Ω; 2W; ±1%; -55÷155°C)
+
+R2   - CF1/2WS-390R (Rezistor: uhlíkový; THT; 390Ω; 500mW; ±5%; Ø0,5x28mm; Ø2,3x6mm)
+
+R3,
+R4,
+R7   - 1k SMD0805-1K (Rezistor: thick film; SMD; 0805; 1kΩ; 0,125W; ±5%; -55÷125°C)
+
+R5,
+R6,
+R9 - 10k RC0805JR-1310KL (Rezistor: thick film; SMD; 0805; 10kΩ; 0,125W; ±5%; -55÷155°C)
+
+R8,
+R10  - 22k SMD0805-22K (Rezistor: thick film; SMD; 0805; 22kΩ; 0,125W; ±5%; -55÷125°C)
+
+---------
+
+LED1,
+LED2 - OF-SMD3216B (LED; SMD; 1206; modrá; 160÷220mcd; 3,2x1,6x0,68mm; 120°; 20mA)
+
+LEDSD, 
+LEDED- OF-SMD3216R (LED; SMD; 1206; červená; 290÷500mcd; 3,2x1,6x0,68mm; 120°; 20mA)
+
+---------
+
+CLDs - CL40M45-DIO (Dioda: CRD; jedna dioda; SMB; 3÷90V; 34÷46mA; 1W)
+
+D1,
+D3 - STPS160A (Dioda: usměrňovací Schottky; SMA; SMD; 60V; 1A; role,páska)
+
+D2 - SMAJ30A-TR (Dioda: TVS; 400W; 33,3V; 36A; jednosměrný; SMA; role,páska)
+
+---------
+
+ostatní:
+- TACT-65R-F (Mikrospínač TACT; SPST-NO; pol: 2; 0,05A/12VDC; THT; není; 2,5N)
+- ZL305-15 (Konektor: kolíkové; zásuvka; zásuvka; PIN: 15; přímý; 2,54mm; THT)
+- ZL201-06G (Konektor: kolíkové; kolíková lišta; vidlice; PIN: 6; přímý; 2,54mm)
