@@ -26,9 +26,11 @@ const String currentVersion = "v2.6.76";
 HardwareSerial ibisSerial(2);
 
 WebServer server(80);
+ 
+ 
 
-const char *apSSID = "ESP_panel";
-const char *apPassword = "panel123";
+const char *apSSID = "********";
+const char *apPassword = "********";
 String wifiSSID;
 String wifiPassword;
 
