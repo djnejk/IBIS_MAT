@@ -31,7 +31,7 @@ WebServer server(80);
 
 const char *apSSID = "********";
 const char *apPassword = "********";
-String wifiSSID; ********
+String wifiSSID; 
 String wifiPassword;
 
 
